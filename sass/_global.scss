@@ -1,0 +1,191 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  // height is part of 'stick footer to bottom'
+  height: 100%;
+}
+
+body {
+  // start of 'stick footer to bottom'
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  .footer-to-bottom {
+    flex: 1 0 auto;
+  }
+  .site-footer {
+    flex-shrink: 0;
+  }
+  // end of 'stick footer to bottom'
+  font-size: 16px;
+  font-size: 1.6rem;
+  background: $background-grey;
+  color: $black;
+  font-family: "Open Sans", sans-serif;
+  background-size: 60px;
+  background-repeat: repeat;
+  background-image: url("images/movie.png");
+  padding-top: 50px;
+  @include breakpoint(xs) {
+    background-size: 30px;
+  }
+}
+
+.screen-reader-text {
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  word-wrap: normal;
+}
+
+img,
+iframe,
+svg {
+  width: auto;
+  max-width: 100%;
+  flex-shrink: 0;
+}
+
+img {
+  height: auto !important;
+  width: auto;
+  display: block;
+}
+
+.intro {
+  background: #222;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 20px;
+  min-height: calc(100vh - 47px);
+  @include breakpoint(xs) {
+    flex-direction: column;
+  }
+  svg {
+    width: 400px;
+    height: 400px;
+    fill: $white;
+    margin-bottom: 30px;
+    @include breakpoint(xs) {
+      width: 200px;
+      height: 200px;
+    }
+  }
+  .left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 50px;
+    color: $white;
+    width: 50%;
+    line-height: 1.6;
+    @include breakpoint(xs) {
+      padding: 20px;
+      width: 100%;
+    }
+  }
+  .right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    width: 50%;
+    @include breakpoint(xs) {
+      padding: 20px 50px;
+      width: 100%;
+    }
+  }
+}
+
+.content-area {
+  position: relative;
+}
+
+.list-title-bar {
+  position: sticky;
+  top: 50px;
+}
+
+.list-title-bar h2 {
+  text-align: center;
+  padding: 15px 10px;
+  margin: 0 auto;
+  background: $black;
+  color: white;
+  font-size: 2rem;
+}
+
+.movies-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: stretch;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 0 auto;
+  list-style: none;
+  width: 1000px;
+  background: $black;
+  padding: 0 10px;
+  max-width: 80%;
+}
+
+.movie {
+  padding: 10px;
+  line-height: 1.6;
+  width: 33.3%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  @include breakpoint(sm) {
+    width: 50%;
+  }
+  @include breakpoint(xs) {
+    width: 100%;
+  }
+  h3 {
+    margin: 10px 0;
+  }
+  .writeup {
+    background-color: $white;
+    flex-grow: 1;
+    padding: 10px 20px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    border-left: 1px solid rgba(0, 0, 0, 0.05);
+    border-right: 1px solid rgba(0, 0, 0, 0.05);
+  }
+}
+
+body.credit {
+  background-image: none;
+  line-height: 2;
+}
+
+.credit ul li {
+  list-style: none;
+}
+
+.credit header {
+  background: $black;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 30px;
+}
+
+#loadMore.hidden {
+  display: none;
+}

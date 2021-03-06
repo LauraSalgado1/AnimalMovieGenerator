@@ -1,0 +1,14 @@
+footer {
+  padding: 10px 30px;
+  background-color: $black;
+  color: $white-text;
+  font-size: 1.1rem;
+  letter-spacing: 0.6px;
+  a {
+    color: $white-text;
+    transition: all 0.3s;
+  }
+  p {
+    margin: 5px 0;
+  }
+}

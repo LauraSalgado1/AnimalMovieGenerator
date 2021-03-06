@@ -1,0 +1,40 @@
+// colours
+
+$black: #000;
+$white: #fff;
+$white-text: #fff5ee;
+$background-grey: #f2f2f2;
+$background-grey: #fbfbfb;
+$background-grey: #888888;
+
+$blue: #2ec7f5;
+
+// breakpoints
+
+@mixin breakpoint($point) {
+  @if $point == xl {
+    @media (min-width: 1500px) {
+      @content;
+    }
+  } @else if $point == md {
+    @media (max-width: 1199px) {
+      @content;
+    }
+  } @else if $point == presmall {
+    @media (max-width: 1030px) {
+      @content;
+    }
+  } @else if $point == sm {
+    @media (max-width: 992px) {
+      @content;
+    }
+  } @else if $point == xs {
+    @media (max-width: 700px) {
+      @content;
+    }
+  } @else if $point == xxs {
+    @media (max-width: 370px) {
+      @content;
+    }
+  }
+}
