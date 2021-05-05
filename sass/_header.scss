@@ -33,7 +33,7 @@ form {
     border: 2px solid $black;
   }
   @include breakpoint(xs) {
-    padding: 3px 10px;
+    padding: 4px 10px 3px;
     margin-left: 10px;
     font-size: 1.2rem;
   }

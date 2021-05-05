@@ -37,75 +37,37 @@ animalMovie.getMovieFromId = function (keywordId) {
   }).then(function (res) {
     $("#container").empty();
     var allItems = res.results;
-    animalMovie.displayProducts(res, allItems);
+    animalMovie.displayItems(allItems);
     animalMovie.jumpToList();
   });
 };
 
-animalMovie.displayProducts = function (res, allItems) {
-  let offset = 0;
-  let totalLength = allItems.length;
-  let currentItem = 0;
-
-  let result = animalMovie.addTheseNine(
-    allItems,
-    offset,
-    totalLength,
-    currentItem
-  );
-
-  currentItem = result.newTotalShown;
-
-  //console.log("current item is now " + currentItem);
-
-  if (currentItem < totalLength) {
-    $("#loadMore").removeClass("hidden");
+animalMovie.displayItems = function (allItems) {
+  let itemHTML = "";
+  for (let i = 0; i < allItems.length; i++) {
+    if (allItems[i].poster_path != null) {
+      itemHTML += '<li class="movie">';
+      itemHTML +=
+        '<img src="https://image.tmdb.org/t/p/w500' +
+        allItems[i].poster_path +
+        '" width="500" height="750" loading="lazy"/>';
+      itemHTML += "<div class='writeup'><h3>" + allItems[i].title + "</h3>";
+      itemHTML += "<p>" + allItems[i].overview + "</p></div>";
+      itemHTML += "</li>";
+    }
   }
-
-  $("#loadMore").on("click", function () {
-    offset = offset + 9;
-    currentItem = result.newTotalShown;
-    //TODO currentItem is always logged as 9 no matter how many clicks
-    animalMovie.addTheseNine(allItems, offset, totalLength, currentItem);
-    console.log("the current item is now " + currentItem);
-  });
-};
-
-animalMovie.addTheseNine = function (items, offset, length, totalShownItems) {
-  let totalShownItemsNew = totalShownItems;
-  console.log("TSIN before loop" + totalShownItemsNew);
-  let productHTML = "";
-
-  for (let i = offset; i < offset + 9 && i < length; i++) {
-    totalShownItemsNew++;
-    productHTML += '<li class="movie">';
-    productHTML +=
-      '<img src="https://image.tmdb.org/t/p/w500' +
-      items[i].poster_path +
-      '" />';
-    productHTML +=
-      "<div class='writeup'><p>item: " +
-      totalShownItemsNew +
-      "</p><h3>" +
-      items[i].title +
-      "</h3>";
-    productHTML += "<p>" + items[i].overview + "</p></div>";
-    productHTML += "</li>";
-  }
-
-  $("#container").append(productHTML);
-
-  //console.log("TSIN after loop" + totalShownItemsNew);
-
-  return {
-    newTotalShown: totalShownItemsNew,
-  };
+  $("#container").append(itemHTML);
 };
 
 animalMovie.changeBackground = function (animal) {
   const currentAnimal = animal.toLowerCase();
-  const currentAnimalUrl = "url('images/" + currentAnimal + ".png')";
-  $("body").css("background-image", currentAnimalUrl);
+  const currentAnimalUrl =
+    "url('images/" +
+    currentAnimal +
+    ".svg'), url('images/" +
+    currentAnimal +
+    ".svg')";
+  $(".content-area").css("background-image", currentAnimalUrl);
 };
 
 animalMovie.jumpToList = function () {
