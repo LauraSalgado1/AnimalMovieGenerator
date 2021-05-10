@@ -81,11 +81,11 @@ animalMovie.jumpToList = function () {
     }
     return location >= 0 ? location : 0;
   };
-  const elem = document.querySelector("#contentArea");
+  const elem = document.querySelector("#contentWrapper");
   const location = getElemDistance(elem);
   window.scroll({
     top: location - 50,
-    left: 100,
+    left: 0,
   });
 };
 
@@ -96,6 +96,17 @@ animalMovie.listTitle = function (selection) {
   titleContainer.append(listTitle);
 };
 
+animalMovie.modal = function () {
+  $("#modalButton").on("click", function () {
+    $("body").addClass("modal-showing");
+  });
+
+  $(".close").on("click", function () {
+    $("body").removeClass("modal-showing");
+  });
+};
+
 $(function () {
   animalMovie.init();
+  animalMovie.modal();
 });

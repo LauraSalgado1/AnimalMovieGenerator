@@ -1,0 +1,84 @@
+.modal {
+  opacity: 0;
+  display: none;
+  transition: opacity 0.2s ease;
+  height: 100vh;
+  overflow-x: auto;
+  position: fixed;
+  z-index: 200;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: $black;
+  background-image: url(images/cat-bg.svg);
+  background-repeat: repeat;
+  background-size: 40px;
+  color: $white;
+  padding: 80px 20px;
+  &::before {
+    display: block;
+    content: "";
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    z-index: 201;
+    background-image: linear-gradient(
+      to bottom,
+      transparent,
+      rgba(0, 0, 0, 0.8)
+    );
+  }
+  .close {
+    -webkit-appearance: none;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    padding: 3px;
+    display: block;
+    transition: opacity 0.2s ease;
+    cursor: pointer;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    &:hover,
+    &:focus {
+      opacity: 0.5;
+    }
+  }
+  svg {
+    width: 30px;
+    height: 30px;
+    fill: $white;
+  }
+  ul {
+    width: 500px;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+  li {
+    margin-bottom: 10px;
+  }
+}
+
+body.modal-showing {
+  .modal {
+    animation-name: modalFade;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease;
+    animation-duration: 0.4s;
+    animation-delay: 0.2s;
+    display: block;
+  }
+}
+
+@keyframes modalFade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

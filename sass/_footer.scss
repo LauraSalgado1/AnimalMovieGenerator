@@ -1,11 +1,11 @@
 footer {
   padding: 27px 30px 26px;
   background-color: $black;
-  color: $white-text;
+  color: $white;
   font-size: 1.1rem;
   letter-spacing: 0.6px;
   a {
-    color: $white-text;
+    color: $white;
     transition: all 0.3s;
   }
   p {
@@ -32,4 +32,14 @@ footer {
       padding-right: 0;
     }
   }
+}
+
+.modal-button {
+  -webkit-appearance: none;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  text-decoration: underline;
+  color: $white;
+  cursor: pointer;
 }

@@ -111,7 +111,10 @@ img {
   position: relative;
   background-size: 5%;
   background-repeat: repeat-y;
-  background-position: 3%, 97%;
+  background-position: 3% 10px, 97% 10px;
+  @include breakpoint(xs) {
+    background-position: 3% 5px, 97% 5px;
+  }
 }
 
 .list-title-bar {
@@ -128,6 +131,10 @@ img {
   margin: 0 auto;
   font-size: 2rem;
   color: $white;
+  @include breakpoint(xs) {
+    padding: 7px 10px;
+    font-size: 1.6rem;
+  }
 }
 
 .movies-list {
