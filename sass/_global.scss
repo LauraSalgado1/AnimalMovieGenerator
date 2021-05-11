@@ -107,22 +107,32 @@ img {
   }
 }
 
+.hide-on-mobile {
+  @include breakpoint(xs) {
+    display: none;
+  }
+}
+
 .content-area {
   position: relative;
   background-size: 5%;
   background-repeat: repeat-y;
   background-position: 3% 10px, 97% 10px;
   @include breakpoint(xs) {
-    background-position: 3% 5px, 97% 5px;
+    background-size: 7%;
+    background-position: 2% 5px, 98% 5px;
   }
 }
 
 .list-title-bar {
   position: sticky;
-  top: 50px;
+  top: 49px;
   background: $black;
   z-index: 50;
   pointer-events: none;
+  @include breakpoint(xs) {
+    position: static;
+  }
 }
 
 .list-title-bar h2 {
@@ -132,8 +142,8 @@ img {
   font-size: 2rem;
   color: $white;
   @include breakpoint(xs) {
-    padding: 7px 10px;
-    font-size: 1.6rem;
+    padding: 15px 10px;
+    font-size: 1.8rem;
   }
 }
 
@@ -148,6 +158,9 @@ img {
   width: 80%;
   background: $black;
   padding: 0 10px;
+  @include breakpoint(xs) {
+    padding: 0;
+  }
 }
 
 .movie {
@@ -163,6 +176,7 @@ img {
   @include breakpoint(xs) {
     width: 100%;
     line-height: 1.3;
+    padding: 0 10px 10px;
     p {
       font-size: 1.4rem;
     }

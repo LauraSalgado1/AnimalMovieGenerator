@@ -12,7 +12,7 @@ header.site-header {
   border-bottom: 2px solid $black;
   z-index: 1;
   @include breakpoint(xs) {
-    padding: 0px 0px 0 10px;
+    padding: 0px;
   }
 }
 
@@ -22,20 +22,22 @@ form {
   border-left: 2px solid $black;
   label {
     margin-right: 10px;
-    @include breakpoint(xs) {
-      margin-right: 5px;
-      margin-bottom: 5px;
-      display: block;
-    }
   }
   select {
     border-radius: 0;
     border: 2px solid $black;
   }
   @include breakpoint(xs) {
-    padding: 4px 10px 3px;
-    margin-left: 10px;
-    font-size: 1.2rem;
+    width: 100%;
+    border-left: none;
+    text-align: center;
+  }
+}
+
+.form-wrapper {
+  @include breakpoint(xs) {
+    position: sticky;
+    top: 0;
   }
 }
 
@@ -45,6 +47,15 @@ h1 {
   font-family: "Fredoka One", cursive;
   margin: 0;
   @include breakpoint(xs) {
-    font-size: 1.6rem;
+    border: 0;
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(50%);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+    word-wrap: normal;
   }
 }
