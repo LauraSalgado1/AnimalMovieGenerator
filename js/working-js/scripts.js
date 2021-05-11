@@ -15,7 +15,7 @@ animalMovie.getKeywordId = function (animalQuery) {
   //get the id of the keyword submitted from the select change
   $.ajax({
     url:
-      "http://api.themoviedb.org/3/search/keyword?api_key=19c1732f3fd1fbaa0320b2839709698a&query=" +
+      "https://api.themoviedb.org/3/search/keyword?api_key=19c1732f3fd1fbaa0320b2839709698a&query=" +
       animalQuery,
     method: "GET",
     dataType: "json",
@@ -29,7 +29,7 @@ animalMovie.getMovieFromId = function (keywordId) {
   //use the id retrieved from the first ajax call to make another ajax call using that id
   $.ajax({
     url:
-      "http://api.themoviedb.org/3/keyword/" +
+      "https://api.themoviedb.org/3/keyword/" +
       keywordId +
       "/movies?api_key=19c1732f3fd1fbaa0320b2839709698a&query=",
     method: "GET",
