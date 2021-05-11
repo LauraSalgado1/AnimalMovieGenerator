@@ -84,5 +84,5 @@ function watch() {
 
 const build = gulp.series(clean, styles, scripts, watch);
 
-exports.build = build;
+exports.build = gulp.series(clean, styles, scripts);
 exports.default = build;
