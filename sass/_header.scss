@@ -1,61 +1,25 @@
 header.site-header {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0px 0px 0 20px;
-  background: $white;
-  position: fixed;
+  text-align: center;
+  padding: 26px 20px 4px;
+  margin: 0;
+  background-color: $black;
+  color: rgba(255, 255, 255, 0.7);
+  position: sticky;
   top: 0;
   left: 0;
   right: 0;
   border-bottom: 2px solid $black;
-  z-index: 1;
-  @include breakpoint(xs) {
-    padding: 0px;
-  }
-}
-
-form {
-  background: $blue;
-  padding: 10px 30px;
-  border-left: 2px solid $black;
-  label {
-    margin-right: 10px;
-  }
-  select {
-    border-radius: 0;
-    border: 2px solid $black;
-  }
-  @include breakpoint(xs) {
-    width: 100%;
-    border-left: none;
-    text-align: center;
-  }
-}
-
-.form-wrapper {
-  @include breakpoint(xs) {
-    position: sticky;
-    top: 0;
+  z-index: 5;
+  @media (max-width: 500px) {
+    padding: 36px 5px 4px;
   }
 }
 
 h1 {
-  color: $black;
-  font-size: 2rem;
+  font-size: 3.2rem;
   font-family: "Fredoka One", cursive;
   margin: 0;
-  @include breakpoint(xs) {
-    border: 0;
-    clip: rect(1px, 1px, 1px, 1px);
-    clip-path: inset(50%);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px;
-    word-wrap: normal;
+  @media (max-width: 500px) {
+    font-size: 2.4rem;
   }
 }
