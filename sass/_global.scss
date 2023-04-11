@@ -4,28 +4,14 @@
 
 html {
   font-size: 62.5%;
-  // height is part of 'stick footer to bottom'
-  height: 100%;
 }
 
 body {
-  // start of 'stick footer to bottom'
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  .footer-to-bottom {
-    flex: 1 0 auto;
-  }
-  .site-footer {
-    flex-shrink: 0;
-  }
-  // end of 'stick footer to bottom'
   font-size: 16px;
   font-size: 1.6rem;
   background-color: $background-intro;
   color: $black;
   font-family: "Open Sans", sans-serif;
-  padding-top: 50px;
 }
 
 .screen-reader-text {
@@ -55,22 +41,36 @@ img {
   display: block;
 }
 
-.intro {
+.inner {
+  width: 1100px;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 64px;
+  @media (max-width: 992px) {
+    padding: 0 32px;
+    margin: 64px auto;
+  }
+}
+
+.intro-wrapper {
   background: $background-intro;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   padding: 40px 20px;
-  min-height: calc(100vh - 50px);
+  min-height: calc(100vh - 69px);
+  gap: 64px;
   @include breakpoint(xs) {
-    flex-direction: column;
-    padding: 10px 20px;
+    flex-direction: column-reverse;
+    padding: 0;
+    min-height: inherit;
+    gap: 32px;
   }
   svg {
     width: 400px;
     height: 400px;
-    fill: $white;
+    fill: #565656;
     margin-bottom: 30px;
     @include breakpoint(xs) {
       width: 200px;
@@ -82,12 +82,17 @@ img {
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    padding: 50px;
     color: $white;
     width: 50%;
     line-height: 1.6;
+    p {
+      font-size: 1.8rem;
+    }
+    @media (max-width: 992px) {
+      width: 70%;
+    }
     @include breakpoint(xs) {
-      padding: 20px;
+      padding: 0px;
       width: 100%;
       h2 {
         text-align: center;
@@ -97,19 +102,46 @@ img {
   .right {
     display: flex;
     justify-content: center;
-    align-items: center;
-    padding: 30px;
     width: 50%;
+    @media (max-width: 992px) {
+      width: 30%;
+    }
     @include breakpoint(xs) {
-      padding: 20px 50px;
+      padding: 0;
       width: 100%;
     }
   }
 }
 
-.hide-on-mobile {
+form {
+  background: $blue;
+  padding: 12px 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 2rem;
+  margin-bottom: 30px;
+  gap: 16px;
+  label {
+    color: $black;
+    line-height: 1.2;
+  }
+  select {
+    border-radius: 0;
+    border: 2px solid $black;
+    @include breakpoint(xs) {
+      width: 100%;
+    }
+  }
   @include breakpoint(xs) {
-    display: none;
+    width: 100%;
+    border-left: none;
+    flex-direction: column;
+    text-align: left;
+    align-items: start;
+    gap: 8px;
   }
 }
 
@@ -124,20 +156,26 @@ img {
   }
 }
 
+main {
+  @media (max-width: 700px) {
+    min-height: calc(100vh - 69px);
+  }
+}
+
 .list-title-bar {
   position: sticky;
-  top: 49px;
+  top: 68px;
   background: $black;
-  z-index: 50;
+  z-index: 4;
   pointer-events: none;
-  @include breakpoint(xs) {
-    position: static;
+  @media (max-width: 700px) {
+    top: 53px;
   }
 }
 
 .list-title-bar h2 {
   text-align: center;
-  padding: 15px 10px;
+  padding: 12px 0 20px;
   margin: 0 auto;
   font-size: 2rem;
   color: $white;
@@ -145,6 +183,10 @@ img {
     padding: 15px 10px;
     font-size: 1.8rem;
   }
+}
+
+p {
+  font-size: 1.4rem;
 }
 
 .movies-list {
@@ -164,8 +206,7 @@ img {
 }
 
 .movie {
-  padding: 10px;
-  line-height: 1.6;
+  padding: 12px;
   width: 33.3%;
   display: flex;
   flex-direction: column;
@@ -181,16 +222,21 @@ img {
       font-size: 1.4rem;
     }
   }
+  img {
+    aspect-ratio: 0.66 / 1;
+  }
   h3 {
-    margin: 10px 0;
+    font-size: 2rem;
+    line-height: 1.2;
   }
   .writeup {
     background-color: $white;
     flex-grow: 1;
-    padding: 10px 20px;
+    padding: 10px 24px 20px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     border-left: 1px solid rgba(0, 0, 0, 0.05);
     border-right: 1px solid rgba(0, 0, 0, 0.05);
+    line-height: 1.6;
   }
 }
 

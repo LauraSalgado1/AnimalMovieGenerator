@@ -37,6 +37,7 @@ animalMovie.getMovieFromId = function (keywordId) {
   }).then(function (res) {
     $("#container").empty();
     var allItems = res.results;
+    console.log(allItems);
     animalMovie.displayItems(allItems);
     animalMovie.jumpToList();
   });
@@ -84,14 +85,14 @@ animalMovie.jumpToList = function () {
   const elem = document.querySelector("#contentWrapper");
   const location = getElemDistance(elem);
   window.scroll({
-    top: location - 50,
+    top: location - 60,
     left: 0,
   });
 };
 
 animalMovie.listTitle = function (selection) {
   $("#listTitleBar").empty();
-  const listTitle = $("<h2>").text("Movies Starring The " + selection);
+  const listTitle = $("<h2>").text("Starring: The " + selection);
   const titleContainer = $("#listTitleBar");
   titleContainer.append(listTitle);
 };
